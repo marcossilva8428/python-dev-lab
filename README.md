@@ -50,7 +50,7 @@ Se estiver usando `taskipy`, adicione no `pyproject.toml`:
 
 ```toml
 [tool.taskipy.tasks]
-test = "pytest"
+test = "pytest -s -x --cov=lab --cov-report=term-missing -vv"
 ```
 
 Depois rode:
@@ -59,8 +59,19 @@ Depois rode:
 poetry run task test
 ```
 
+## Como corrigir com Ruff
+
+Use estes comandos para verificar e corrigir o estilo do projeto:
+
+```bash
+poetry run ruff check .
+poetry run ruff check . --fix
+poetry run ruff format .
+```
+
 ## Resumo
 
 - escreva suas funcoes em `src/lab/functions.py`
 - escreva seus testes em `tests/test_functions.py`
 - rode `poetry run pytest` ou `poetry run task test`
+- use `poetry run ruff check .`, `poetry run ruff check . --fix` e `poetry run ruff format .`
